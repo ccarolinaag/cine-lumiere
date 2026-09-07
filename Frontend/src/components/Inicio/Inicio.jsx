@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import styles from "./Inicio.module.css";
 
 import fundoInicio from "../../assets/fundo-inicio.png";
@@ -5,15 +7,16 @@ import logo from "../../assets/logo.png";
 
 import Botao from "../Botão/Botao";
 
-function Inicio({ setJogoIniciado }) {
+function Inicio() {
+    const navigate = useNavigate();
 
     return (
         <main className={styles.inicio}>
             <div className={styles.painel}>
-                <img src={fundoInicio} alt="" className={styles.fundo}/>
+                <img src={fundoInicio} alt="" className={styles.fundo} />
                 <div className={styles.conteudo}>
                     <header className={styles.cabecalho}>
-                        <img src={logo} alt="Cine Lumière" className={styles.logo}/>
+                        <img src={logo} alt="Cine Lumière" className={styles.logo} />
                     </header>
                     <main className={styles.apresentacao}>
                         <h1>Boas-vindas ao Cine Lumière!</h1>
@@ -24,7 +27,7 @@ function Inicio({ setJogoIniciado }) {
                         </p>
                         <Botao
                             texto="Iniciar Jogo"
-                            onClick={() => setJogoIniciado(true)}
+                            onClick={() => navigate("/cinema")}
                         />
                     </main>
                 </div>

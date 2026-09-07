@@ -3,11 +3,7 @@ import styles from "./FinalizarDia.module.css";
 import Botao from "../Botão/Botao";
 
 
-function FinalizarDia({
-    resumo,
-    comecarDeNovo
-}) {
-
+function FinalizarDia({resumo, comecarDeNovo, quantidadePreparacoes}) {
     return (
         <div className={styles.finalizarDia}>
             <div className={styles.titulo}>

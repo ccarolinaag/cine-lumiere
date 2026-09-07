@@ -10,12 +10,15 @@ import Sala from "../Sala/Sala";
 import EntradaAdministracao from "../EntradaAdministracao/EntradaAdministracao";
 import Administracao from "../Administracao/Administracao";
 
-function Cinema({
-    jogoIniciado,
-    comecarDeNovo
-}) {
+function Cinema({ jogoIniciado }) {
+    function comecarDeNovo() {
+        setSalas(salasIniciais);
+        setLuzAcesa(true);
+        setAdministracaoAberta(false);
+        setQuantidadePreparacoes(0);
+    }
 
-    const [salas, setSalas] = useState([
+    const salasIniciais = [
         {
             numero: 1,
             porta: "direita",
@@ -65,19 +68,25 @@ function Cinema({
             porta: "superior",
             filmes: []
         }
-    ]);
+    ];
+
+    const [salas, setSalas] = useState(salasIniciais);
 
 
     const [luzAcesa, setLuzAcesa] = useState(true);
     const [administracaoAberta, setAdministracaoAberta] = useState(false);
+    const [quantidadePreparacoes, setQuantidadePreparacoes] = useState(0);
 
+    function registrarPreparacao() {
+        setQuantidadePreparacoes(quantidadePreparacoes + 1);
+    }
 
     return (
         <div className={styles.tela}>
             <main className={`${styles.cinema} ${!jogoIniciado || administracaoAberta ? styles.cinemaDesfocado : ""}`}>
-                <img src={fundo} alt="" className={styles.fundo}/>
+                <img src={fundo} alt="" className={styles.fundo} />
                 <header className={styles.cabecalho}>
-                    <img src={logo} alt="Cine Lumière" className={styles.logo}/>
+                    <img src={logo} alt="Cine Lumière" className={styles.logo} />
                 </header>
                 <section className={styles.mapa}>
                     <img src={tapete} alt="Tapete"
@@ -87,16 +96,17 @@ function Cinema({
                         <EntradaAdministracao
                             luzAcesa={luzAcesa}
                             setLuzAcesa={setLuzAcesa}
-                            setAdministracaoAberta={
-                                setAdministracaoAberta
-                            }
+                            setAdministracaoAberta={setAdministracaoAberta}
                         />
                     </div>
                     {jogoIniciado && (
                         <div className={styles.salas}>
                             {salas.map((sala) => (
                                 <div className={styles[`sala${sala.numero}`]}>
-                                    <Sala sala={sala} luzAcesa={luzAcesa}/>
+                                    <Sala
+                                        sala={sala}
+                                        luzAcesa={luzAcesa}
+                                        onPrepararSala={registrarPreparacao} />
                                 </div>
                             ))}
                         </div>
@@ -104,8 +114,12 @@ function Cinema({
                 </section>
             </main>
             {administracaoAberta && (
-                <Administracao setAdministracaoAberta={setAdministracaoAberta}
-                    salas={salas} setSalas={setSalas} comecarDeNovo={comecarDeNovo}/>
+                <Administracao
+                    setAdministracaoAberta={setAdministracaoAberta}
+                    salas={salas}
+                    setSalas={setSalas}
+                    comecarDeNovo={comecarDeNovo}
+                    quantidadePreparacoes={quantidadePreparacoes} />
             )}
         </div>
     );

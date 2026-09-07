@@ -8,7 +8,7 @@ import porta from "../../assets/porta.png";
 
 import Botao from "../Botão/Botao";
 
-function Sala({ sala, luzAcesa }) {
+function Sala({ sala, luzAcesa, onPrepararSala }) {
     const [indiceFilme, setIndiceFilme] = useState(0);
 
     const [statusSala, setStatusSala] = useState(
@@ -41,6 +41,7 @@ function Sala({ sala, luzAcesa }) {
     }
 
     function prepararSala() {
+        onPrepararSala();
         setStatusSala("preparando");
     }
 
