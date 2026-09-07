@@ -1,0 +1,168 @@
+/* TELA DA ADMINISTRAÇÃO -------------------------------------------------------------------------------- */
+.administracao {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* PAINEL -------------------------------------------------------------------------------------------------------------------- */
+.painel {
+    position: relative;
+    width: 60%;
+}
+
+/* IMAGEM DA ADMINISTRAÇÃO --------------------------------------------------------------------------------------------------- */
+.fundo {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+
+/* CONTEÚDO ----------------------------------------------------------------------------------------------------------------------- */
+.conteudo {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 110px 67px;
+}
+
+
+/* BOTÕES -------------------------------------------------------------------------------------------------------------------- */
+.botoes {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0;
+    padding: 0px 11px 0px 9px;
+}
+
+.botoesMaiores {
+    display: flex;
+    width: 53%;
+    gap: 14px;
+}
+
+.botao {
+    width: 300px;
+}
+
+.botaoVoltar {
+    width: 43px;
+}
+
+.tituloCadastro {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-62%);
+    margin: 0;
+    font-family: "DotGothic16", sans-serif;
+    font-size: 29px;
+    color: #31170b;
+}
+
+/* SALAS --------------------------------------------------------------------------------------------------------------------- */
+.salas {
+    width: 100%;
+    height: 84%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* CADA SALA -------------------------------------------------------------------------------------------------------------------- */
+.sala {
+    flex: 1;
+    font-family: "Geist Pixel", sans-serif;
+    padding-left: 10px;
+}
+
+
+/* DIVISÃO ENTRE AS SALAS ---------------------------------------------------------------------------------------------------- */
+.sala+.sala {
+    position: relative;
+}
+
+.sala+.sala::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: -10px;
+    border-left: 10px solid #665348;
+}
+
+
+/* TÍTULO DA SALA ---------------------------------------------------------------------------------------------------------------- */
+.tituloSala {
+    padding: 5px 8px;
+    background-color: #4a2414;
+    width: 36%;
+    margin: 0px 0px 17px 9px;
+}
+
+.sala h2 {
+    font-family: "DotGothic16", sans-serif;
+    font-size: 24px;
+    color: #ba8a49;
+}
+
+
+/* SESSÕES -------------------------------------------------------------------------------------------------------------------- */
+.sessoes {
+    display: flex;
+    flex-direction: column;
+    margin-left: 9px;
+    gap: 20px;
+}
+
+
+/* CADA SESSÃO --------------------------------------------------------------------------------------------------------------- */
+.sessao {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+
+.horario {
+    font-family: "Geist Pixel", sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    color: #83502a;
+}
+
+
+.filme {
+    display: flex;
+    flex-direction: column;
+}
+
+.filme h1 {
+    font-size: 20px;
+    color: #3f3028;
+}
+
+.filme span {
+    font-family: "Geist Pixel", sans-serif;
+    font-size: 12px;
+    color: #5d5049;
+}
+
+/* SALA SEM PROGRAMAÇÃO ------------------------------------------------------------------------------------------------------------- */
+.semProgramacao {
+    font-family: "Geist Pixel", sans-serif;
+    font-size: 14px;
+    color: #5d5049;
+}

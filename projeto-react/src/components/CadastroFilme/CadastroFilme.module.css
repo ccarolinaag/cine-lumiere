@@ -1,0 +1,116 @@
+.cadastro {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    height: 84%;
+}
+
+.cadastro h2 {
+    font-family: "DotGothic16", sans-serif;
+    font-size: 24px;
+    color: #ba49ba;
+}
+
+.tituloCadastro {
+    padding: 5px 8px;
+    background-color: #4a2414;
+    width: 36%;
+    margin: 0px 0px 17px 9px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* INPUT -------------------------------------------------------------------------------------------------------------- */
+.campo input {
+    width: 100%;
+    height: 38px;
+    box-sizing: border-box;
+    border: 2px solid #4a2f20;
+    border-radius: 11px;
+    background-color: #f3e4c5;
+    box-shadow:
+        inset 0 0 0 3px #e8c477,
+        0 0 0 1px #d4a85c,
+        0 0 0 3px #4a2f20;
+    padding: 0 11px;
+    font-family: "Geist Pixel", sans-serif;
+    font-size: 12px;
+    color: #5d5049;
+    outline: none;
+}
+
+.campo input::placeholder {
+    color: #8a7968;
+}
+
+.campo select {
+    width: 100%;
+    height: 38px;
+    box-sizing: border-box;
+    border: 2px solid #4a2f20;
+    border-radius: 11px;
+    background-color: #f3e4c5;
+    box-shadow:
+        inset 0 0 0 3px #e8c477,
+        0 0 0 1px #d4a85c,
+        0 0 0 3px #4a2f20;
+    padding: 0 11px;
+    font-family: "Geist Pixel", sans-serif;
+    font-size: 12px;
+    color: #5d5049;
+    outline: none;
+    cursor: pointer;
+}
+
+.campo select option {
+    background-color: #f3e4c5;
+    font-family: "Geist Pixel", sans-serif;
+    font-size: 12px;
+    color: #5d5049;
+}
+
+
+/* ORGANIZAÇÃO DO FORMULÁRIO --------------------------------------------------------------------------------------------------------*/
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 55%;
+}
+
+.colunas {
+    display: flex;
+    gap: 35px;
+}
+
+.coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo label {
+    font-family: "Geist Pixel", sans-serif;
+    font-size: 14px;
+    line-height: 13px;
+    color: #32170a;
+}
+
+/* BOTÃO -------------------------------------------------------------------------------------------------------------------------*/
+.botao {
+    display: flex;
+    justify-content: center;
+}
