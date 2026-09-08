@@ -1,14 +1,14 @@
 # Cine Lumière — Cliente
 Cliente Web do **Cine Lumière**, desenvolvido em React para a interface do jogo de gerenciamento de cinema.
 
----
+
 
 ## 🎬 Sobre o cliente
 O cliente é responsável pela interface visual e pela interação do usuário com o jogo.
 A aplicação permite visualizar as salas de cinema, acompanhar as sessões, cadastrar filmes, iniciar sessões, preparar salas e consultar o resumo do funcionamento do cinema.
 O cliente também realiza as requisições necessárias para comunicação com a API desenvolvida em Spring Boot.
 
----
+
 
 ## 🛠️ Tecnologias utilizadas
   - React
@@ -18,7 +18,6 @@ O cliente também realiza as requisições necessárias para comunicação com a
   - Axios
   - CSS Modules
 
----
 
 ## 📁 Estrutura do cliente
 
@@ -48,7 +47,7 @@ O cliente também realiza as requisições necessárias para comunicação com a
                                               └── README.md
                                               ```
 
----
+
 
 ## 🖥️ Principais componentes
 | Componente | Função |
@@ -63,7 +62,7 @@ O cliente também realiza as requisições necessárias para comunicação com a
 | `Mensagem` | Exibe mensagens de sucesso ou erro |
 | `Botao` | Componente reutilizável para os botões da aplicação |
 
----
+
 
 ## 🧭 Rotas
 O projeto utiliza **React Router DOM** para controlar a navegação entre as páginas.
@@ -91,7 +90,7 @@ Entre as operações utilizadas pelo cliente estão:
 
 A API utilizada pelo projeto é executada localmente na porta `8080`.
 
----
+
 
 ## ▶️ Como executar
 ### 1. Instalar as dependências
@@ -109,7 +108,7 @@ npm run dev
 
 O Vite iniciará o servidor de desenvolvimento e exibirá no terminal o endereço para acessar a aplicação.
 
----
+
 
 ## 🔗 Integração com a API
 Para que todas as funcionalidades do cliente estejam disponíveis, a API do projeto também deve estar em execução.
@@ -128,8 +127,6 @@ A comunicação ocorre da seguinte forma:
 
 O README específico da API contém as instruções para executar o backend e consultar seus endpoints.
 **[README da API](../api/README.md)**
-
----
 
 ## 🎓 Desenvolvimento acadêmico
 O cliente faz parte do projeto integrador **Cine Lumière**, desenvolvido para as atividades acadêmicas do curso de Análise e Desenvolvimento de Sistemas.
