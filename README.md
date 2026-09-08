@@ -9,10 +9,12 @@ O projeto foi desenvolvido como uma aplicação integrada entre **Front-end e Ba
 
 
 
+
 ## 🎯 Objetivo
 O objetivo do projeto é desenvolver uma aplicação Web funcional na qual o cliente desenvolvido em React consuma uma API REST desenvolvida em Java e Spring Boot.
 O Back-end é responsável por receber as requisições, validar os dados, aplicar as regras de negócio e realizar a persistência das informações.
 O Front-end é responsável pela interface, interação com o jogador e comunicação com a API.
+
 
 
 
@@ -29,6 +31,7 @@ Durante uma partida, o jogador pode:
   - Finalizar o dia de funcionamento;
   - Consultar o resumo das métricas do dia;
   - Começar uma nova partida.
+
 
 
 
@@ -64,6 +67,7 @@ O tempo utilizado na preparação das salas é considerado no cálculo das métr
 
 
 
+
 ## 🏛️ Arquitetura
 ```text
                                       ┌────────────────────┐
@@ -89,6 +93,7 @@ O tempo utilizado na preparação das salas é considerado no cálculo das métr
 
 
 
+
 ## 🖥️ Cliente
 O cliente é responsável pela interface e pela interação do jogador com o sistema.
 Entre suas responsabilidades estão:
@@ -100,6 +105,7 @@ Entre suas responsabilidades estão:
   - Atualizar a interface de acordo com os dados recebidos.
 A documentação específica do Front-end está disponível em:
 [README do Cliente](./cliente/README.md)
+
 
 
 
@@ -118,6 +124,7 @@ Entre suas responsabilidades estão:
   - Disponibilizar os recursos por meio de uma API REST.
 A documentação específica do Back-end e dos endpoints está disponível em:
 [README da API](./api/README.md)
+
 
 
 
@@ -157,6 +164,7 @@ Após o processamento, a API retorna uma resposta HTTP para o cliente, que utili
 
 
 
+
 ## 🔌 Principais recursos da API
 A API disponibiliza recursos relacionados a:
 | Recurso | Finalidade |
@@ -166,6 +174,7 @@ A API disponibiliza recursos relacionados a:
 | Resumo do dia | Consulta das métricas do funcionamento do cinema |
 
 A documentação completa dos endpoints, incluindo métodos HTTP, parâmetros, requisições, respostas e códigos de status, está disponível no [README da API](./api/README.md).
+
 
 
 
@@ -179,6 +188,7 @@ A API utiliza códigos HTTP para indicar o resultado das operações.
 | `400 Bad Request` | Dados enviados são inválidos |
 | `404 Not Found` | Recurso solicitado não existe |
 | `409 Conflict` | Operação não pode ser realizada devido a um conflito |
+
 
 
 
@@ -209,6 +219,7 @@ A API utiliza códigos HTTP para indicar o resultado das operações.
 
 
 
+
 ## 📁 Estrutura do projeto
 ``text 
                                           cine-lumiere/
@@ -230,6 +241,7 @@ A API utiliza códigos HTTP para indicar o resultado das operações.
 
 **Cliente:** O diretório cliente/ contém a aplicação Front-end desenvolvida em React.
 **API:**O diretório api/ contém a aplicação Back-end desenvolvida em Java e Spring Boot.
+
 
 
 
@@ -280,6 +292,8 @@ O Vite disponibilizará o endereço local da aplicação no terminal.
 Acesse o endereço informado pelo Vite no navegador.
 
 
+
+
 ## 🔗 Integração
 Para utilizar a aplicação completa, a API deve estar em execução antes de utilizar as funcionalidades do cliente que dependem das requisições ao Back-end.
 O cliente utiliza a API REST para:
@@ -291,9 +305,13 @@ A URL utilizada pelo cliente para comunicação com a API é configurada no serv
 
 
 
+
 ## 🎓 Desenvolvimento acadêmico
 O Cine Lumière foi desenvolvido como parte das atividades acadêmicas do curso de Análise e Desenvolvimento de Sistemas.
 O projeto integra conhecimentos de desenvolvimento Front-end, desenvolvimento Web, APIs REST, HTTP, Java, Spring Boot, JDBC, banco de dados e desenvolvimento de interfaces seguindo processo de design UX/UI.
+
+
+
 
 ## ✍️ Autoria
 Projeto desenvolvido por:
