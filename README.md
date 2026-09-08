@@ -6,14 +6,14 @@
 O **Cine Lumière** é um jogo de gerenciamento de cinema no qual o jogador administra as salas e sessões de um cinema durante um dia de funcionamento.
 A aplicação permite acompanhar a programação das salas, cadastrar filmes e sessões, preparar e iniciar sessões, acompanhar a ocupação das salas e, ao final do dia, consultar um resumo com as principais métricas da operação.
 O projeto foi desenvolvido como uma aplicação integrada entre **Front-end e Back-end**, com comunicação por meio de uma **API REST** e persistência dos dados em banco de dados relacional.
-
+<br>
 
 
 
 ## 🎯 Objetivo
 O objetivo do projeto é desenvolver uma aplicação Web funcional na qual o cliente desenvolvido em React consuma uma API REST desenvolvida em Java e Spring Boot.
 O Back-end é responsável por receber as requisições, validar os dados, aplicar as regras de negócio e realizar a persistência das informações.
-O Front-end é responsável pela interface, interação com o jogador e comunicação com a API.
+O Front-end é responsável pela interface, interação com o jogador e comunicação com a API. <br>
 
 
 
@@ -30,7 +30,7 @@ Durante uma partida, o jogador pode:
   - Encerrar uma sessão;
   - Finalizar o dia de funcionamento;
   - Consultar o resumo das métricas do dia;
-  - Começar uma nova partida.
+  - Começar uma nova partida.<br>
 
 
 
@@ -63,7 +63,7 @@ O Front-end não realiza os cálculos das métricas finais.
 O cliente solicita os dados à API e apresenta as informações retornadas.
 
 ### 8. O tempo de preparação é considerado pelo Back-end
-O tempo utilizado na preparação das salas é considerado no cálculo das métricas do dia.
+O tempo utilizado na preparação das salas é considerado no cálculo das métricas do dia.<br>
 
 
 
@@ -123,7 +123,7 @@ Entre suas responsabilidades estão:
   - Calcular as métricas do dia;
   - Disponibilizar os recursos por meio de uma API REST.
 A documentação específica do Back-end e dos endpoints está disponível em:
-[README da API](./api/README.md)
+[README da API](./api/README.md) <br>
 
 
 
@@ -160,20 +160,19 @@ O fluxo básico da aplicação é:
 
 O cliente envia as requisições para os endpoints disponibilizados pela API.
 A API processa a solicitação, valida os dados, aplica as regras de negócio e, quando necessário, consulta ou altera informações no banco de dados.
-Após o processamento, a API retorna uma resposta HTTP para o cliente, que utiliza os dados recebidos para atualizar a interface.
+Após o processamento, a API retorna uma resposta HTTP para o cliente, que utiliza os dados recebidos para atualizar a interface.<br>
 
 
 
 
 ## 🔌 Principais recursos da API
 A API disponibiliza recursos relacionados a:
-| Recurso | Finalidade |
-|---|---|
-| Filmes | Cadastro e consulta de filmes |
-| Sessões | Cadastro, consulta, início e remoção de sessões |
+| Recurso       | Finalidade                                      |
+|---------------|-------------------------------------------------|
+| Filmes        | Cadastro e consulta de filmes                  |
+| Sessões       | Cadastro, consulta, início e remoção de sessões |
 | Resumo do dia | Consulta das métricas do funcionamento do cinema |
-
-A documentação completa dos endpoints, incluindo métodos HTTP, parâmetros, requisições, respostas e códigos de status, está disponível no [README da API](./api/README.md).
+A documentação completa dos endpoints, incluindo métodos HTTP, parâmetros, requisições, respostas e códigos de status, está disponível no [README da API](./api/README.md). <br>
 
 
 
@@ -187,7 +186,7 @@ A API utiliza códigos HTTP para indicar o resultado das operações.
 | `204 No Content` | Operação realizada sem conteúdo para retornar |
 | `400 Bad Request` | Dados enviados são inválidos |
 | `404 Not Found` | Recurso solicitado não existe |
-| `409 Conflict` | Operação não pode ser realizada devido a um conflito |
+| `409 Conflict` | Operação não pode ser realizada devido a um conflito |<br>
 
 
 
@@ -215,7 +214,7 @@ A API utiliza códigos HTTP para indicar o resultado das operações.
   - Git
   - GitHub
   - Visual Studio Code
-  - IntelliJ IDEA
+  - IntelliJ IDEA <br>
 
 
 
@@ -240,7 +239,7 @@ A API utiliza códigos HTTP para indicar o resultado das operações.
 ``
 
 **Cliente:** O diretório cliente/ contém a aplicação Front-end desenvolvida em React.
-**API:**O diretório api/ contém a aplicação Back-end desenvolvida em Java e Spring Boot.
+**API:**O diretório api/ contém a aplicação Back-end desenvolvida em Java e Spring Boot.<br>
 
 
 
@@ -289,7 +288,7 @@ Execute o projeto:
 npm run dev
 ``
 O Vite disponibilizará o endereço local da aplicação no terminal.
-Acesse o endereço informado pelo Vite no navegador.
+Acesse o endereço informado pelo Vite no navegador.<br>
 
 
 
@@ -301,14 +300,14 @@ O cliente utiliza a API REST para:
   - Cadastrar sessões;
   - Iniciar sessões;
   - Consultar o resumo do dia.
-A URL utilizada pelo cliente para comunicação com a API é configurada no serviço de comunicação do Front-end.
+A URL utilizada pelo cliente para comunicação com a API é configurada no serviço de comunicação do Front-end.<br>
 
 
 
 
 ## 🎓 Desenvolvimento acadêmico
 O Cine Lumière foi desenvolvido como parte das atividades acadêmicas do curso de Análise e Desenvolvimento de Sistemas.
-O projeto integra conhecimentos de desenvolvimento Front-end, desenvolvimento Web, APIs REST, HTTP, Java, Spring Boot, JDBC, banco de dados e desenvolvimento de interfaces seguindo processo de design UX/UI.
+O projeto integra conhecimentos de desenvolvimento Front-end, desenvolvimento Web, APIs REST, HTTP, Java, Spring Boot, JDBC, banco de dados e desenvolvimento de interfaces seguindo processo de design UX/UI.<br>
 
 
 
