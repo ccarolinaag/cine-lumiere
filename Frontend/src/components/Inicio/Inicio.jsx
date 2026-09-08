@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { buscarSessoes, buscarFilmes } from "../../services/api";
 
 import styles from "./Inicio.module.css";
 
@@ -27,7 +28,20 @@ function Inicio() {
                         </p>
                         <Botao
                             texto="Iniciar Jogo"
-                            onClick={() => navigate("/cinema")}
+                            onClick={() => {
+                                buscarSessoes()
+                                    .then((sessoes) => {
+                                        buscarFilmes()
+                                            .then((filmes) => {
+                                                navigate("/cinema", {
+                                                    state: {
+                                                        sessoes: sessoes,
+                                                        filmes: filmes
+                                                    }
+                                                });
+                                            });
+                                    });
+                            }}
                         />
                     </main>
                 </div>

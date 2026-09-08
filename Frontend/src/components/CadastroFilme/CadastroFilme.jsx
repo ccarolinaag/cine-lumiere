@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { cadastrarSessao } from "../../services/api";
 
 import styles from "./CadastroFilme.module.css";
 
 import Botao from "../Botão/Botao";
 
-function CadastroFilme({salas, setSalas}) {
+function CadastroFilme({ salas, setSalas }) {
     const [dadosFilme, setDadosFilme] = useState({
         numero: "",
         horario: "",
@@ -15,42 +16,56 @@ function CadastroFilme({salas, setSalas}) {
         pais: ""
     });
 
+    function cadastrarFilme() {
+        const dadosSessao = {
+            sala: dadosFilme.numero,
+            horario: dadosFilme.horario,
+            nome: dadosFilme.filme,
+            diretor: dadosFilme.diretor,
+            ano: dadosFilme.ano,
+            duracao: dadosFilme.duracao,
+            pais: dadosFilme.pais
+        };
+
+        cadastrarSessao(dadosSessao)
+            .then((resposta) => {
+                const novasSalas = salas.map((sala) => {
+                    if (sala.numero == dadosFilme.numero) {
+                        return {
+                            ...sala,
+                            filmes: [
+                                ...sala.filmes,
+                                {
+                                    id: resposta.id,
+                                    horario: dadosFilme.horario,
+                                    filme: dadosFilme.filme,
+                                    diretor: dadosFilme.diretor,
+                                    ano: dadosFilme.ano,
+                                    duracao: dadosFilme.duracao,
+                                    pais: dadosFilme.pais
+                                }
+                            ]
+                        };
+                    }
+                    return sala;
+                });
+                setSalas(novasSalas);
+            })
+            .catch((erro) => {
+                console.log("Erro na requisição:", erro);
+            });
+    }
 
     function alterarCampo(event) {
         const nomeCampo = event.target.name;
         const valorCampo = event.target.value;
 
-        setDadosFilme({ ...dadosFilme, [nomeCampo]: valorCampo});
+        setDadosFilme({ ...dadosFilme, [nomeCampo]: valorCampo });
     }
-
-
-    function cadastrarFilme(event) {
-        event.preventDefault();
-        const novasSalas = salas.map((sala) => {
-
-            if (sala.numero == dadosFilme.numero) {
-                return { ...sala,
-                    filmes: [...sala.filmes,
-                        {
-                            horario: dadosFilme.horario,
-                            filme: dadosFilme.filme,
-                            diretor: dadosFilme.diretor,
-                            ano: dadosFilme.ano,
-                            duracao: dadosFilme.duracao,
-                            pais: dadosFilme.pais
-                        }
-                    ]
-                };
-            }
-            return sala;
-        });
-        setSalas(novasSalas);
-    }
-
 
     return (
         <div className={styles.cadastro}>
-            <form className={styles.formulario} onSubmit={cadastrarFilme} >
+            <form className={styles.formulario}>
                 <div className={styles.colunas}>
                     <div className={styles.coluna}>
                         <div className={styles.campo}>
@@ -131,7 +146,11 @@ function CadastroFilme({salas, setSalas}) {
                     </div>
                 </div>
                 <div className={styles.botao}>
-                    <Botao texto="Cadastrar filme" type="submit"/>
+                    <Botao
+                        texto="Cadastrar filme"
+                        type="button"
+                        onClick={cadastrarFilme}
+                    />
                 </div>
             </form>
         </div>

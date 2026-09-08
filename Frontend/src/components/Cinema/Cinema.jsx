@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { buscarSessoes } from "../../services/api";
 
 import styles from "../Cinema/Cinema.module.css";
 
@@ -22,46 +23,12 @@ function Cinema({ jogoIniciado }) {
         {
             numero: 1,
             porta: "direita",
-            filmes: [
-                {
-                    horario: "20H40",
-                    filme: "Interestelar",
-                    diretor: "Christopher Nolan",
-                    ano: 2018,
-                    duracao: 172,
-                    pais: "EUA"
-                },
-                {
-                    horario: "23H40",
-                    filme: "Duna",
-                    diretor: "Denis Villeneuve",
-                    ano: 2024,
-                    duracao: 166,
-                    pais: "EUA"
-                }
-            ]
+            filmes: []
         },
         {
             numero: 2,
             porta: "esquerda",
-            filmes: [
-                {
-                    horario: "21H10",
-                    filme: "Duna",
-                    diretor: "Denis Villeneuve",
-                    ano: 2024,
-                    duracao: 166,
-                    pais: "EUA"
-                },
-                {
-                    horario: "00H00",
-                    filme: "Oppenheimer",
-                    diretor: "Christopher Nolan",
-                    ano: 2023,
-                    duracao: 180,
-                    pais: "EUA"
-                }
-            ]
+            filmes: []
         },
         {
             numero: 3,
@@ -79,6 +46,13 @@ function Cinema({ jogoIniciado }) {
 
     function registrarPreparacao() {
         setQuantidadePreparacoes(quantidadePreparacoes + 1);
+    }
+
+    function carregarSessoes() {
+        buscarSessoes()
+            .then((sessoes) => {
+                console.log("Sessões recebidas:", sessoes);
+            });
     }
 
     return (
@@ -121,6 +95,7 @@ function Cinema({ jogoIniciado }) {
                     comecarDeNovo={comecarDeNovo}
                     quantidadePreparacoes={quantidadePreparacoes} />
             )}
+            
         </div>
     );
 }

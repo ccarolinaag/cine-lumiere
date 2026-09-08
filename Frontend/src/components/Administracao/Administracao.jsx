@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { buscarResumoDia } from "../../services/api";
 
 import styles from "./Administracao.module.css";
 
@@ -13,22 +14,15 @@ import FinalizarDia from "../FinalizarDia/FinalizarDia";
 function Administracao({ setAdministracaoAberta, salas, setSalas, comecarDeNovo, quantidadePreparacoes }) {
     const [cadastroAberto, setCadastroAberto] = useState(false);
     const [diaFinalizado, setDiaFinalizado] = useState(false);
+    const [resumo, setResumo] = useState(null);
 
-
-    const resumoMockado = {
-        publicoTotal: 127,
-        sessoesRealizadas: 6,
-        tempoPreparacao: "00:18",
-        sessaoMaisCheia: {
-            filme: "Duna",
-            sala: 2,
-            horario: "21H10",
-            espectadores: 38,
-            capacidade: 40,
-            ocupacao: 95
-        }
-    };
-
+    function finalizarDia() {
+        buscarResumoDia(quantidadePreparacoes)
+            .then((dados) => {
+                setResumo(dados);
+                setDiaFinalizado(true);
+            });
+    }
 
     return (
         <main className={styles.administracao}>
@@ -51,8 +45,9 @@ function Administracao({ setAdministracaoAberta, salas, setSalas, comecarDeNovo,
                                 {
                                     !cadastroAberto && (
                                         <div className={styles.botoesMaiores}>
-                                            <Botao texto="Finalizar dia" onClick={() =>
-                                                setDiaFinalizado(true)}
+                                            <Botao
+                                                texto="Finalizar dia"
+                                                onClick={finalizarDia}
                                                 className={styles.botao}
                                             />
                                             <Botao texto="Cadastrar filme" onClick={() =>
@@ -73,7 +68,7 @@ function Administracao({ setAdministracaoAberta, salas, setSalas, comecarDeNovo,
                     {diaFinalizado ?
                         (
                             <FinalizarDia
-                                resumo={resumoMockado}
+                                resumo={resumo}
                                 comecarDeNovo={comecarDeNovo}
                                 quantidadePreparacoes={quantidadePreparacoes} />
                         ) : !cadastroAberto ?

@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -14,6 +15,7 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Random;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/sessoes")
 public class SessaoController {
@@ -249,6 +251,30 @@ public class SessaoController {
                 Integer.class,
                 filmeId
         );
+    }
+
+    @PutMapping("/{id}/iniciar")
+    public ResponseEntity<Sessao> iniciarSessao(@PathVariable Integer id) {
+        if (!existePorId(id)) {
+            return ResponseEntity.status(404).build();
+        }
+
+        Integer ocupacao = gerarOcupacao();
+
+        String sql = """
+            UPDATE sessao
+            SET ocupacao = ?, iniciada = ?
+            WHERE id = ?
+            """;
+
+        template.update(
+                sql,
+                ocupacao,
+                true,
+                id
+        );
+        Sessao sessao = buscarPorId(id).getBody();
+        return ResponseEntity.status(200).body(sessao);
     }
 
     @DeleteMapping("/{id}")

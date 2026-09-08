@@ -1,4 +1,4 @@
-export const salasMockadas = [
+/* export const salasMockadas = [
     {
         numero: 1,
         porta: "direita",
@@ -50,4 +50,4 @@ export const salasMockadas = [
         porta: "superior",
         filmes: []
     }
-];
+]; */

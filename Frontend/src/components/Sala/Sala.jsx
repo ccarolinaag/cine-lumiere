@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { iniciarSessao } from "../../services/api";
 
 import styles from "./Sala.module.css";
 
@@ -10,30 +11,25 @@ import Botao from "../Botão/Botao";
 
 function Sala({ sala, luzAcesa, onPrepararSala }) {
     const [indiceFilme, setIndiceFilme] = useState(0);
-
-    const [statusSala, setStatusSala] = useState(
-        sala.filmes.length === 0 ? "semProgramacao" : "aguardando"
-    );
-
     const [ocupacaoAtual, setOcupacaoAtual] = useState(null);
+    const [statusSala, setStatusSala] = useState("aguardando");
 
     const imagemLuz = luzAcesa ? imagemLuzAcesa : luzApagada;
-
     const filmeAtual = sala.filmes[indiceFilme];
-
-    function gerarOcupacao() {
-        return Math.floor(Math.random() * 41);
-    }
 
     function calcularTempoFilme(duracao) {
         return duracao / 20;
     }
 
-    function iniciarSessao() {
-        const ocupacao = gerarOcupacao();
-
-        setOcupacaoAtual(ocupacao);
-        setStatusSala("exibindo");
+    function iniciarSessaoSala() {
+        iniciarSessao(filmeAtual.id)
+            .then((resposta) => {
+                setOcupacaoAtual(resposta.ocupacao);
+                setStatusSala("exibindo");
+            })
+            .catch((erro) => {
+                console.log("Erro ao iniciar sessão:", erro);
+            });
     }
 
     function terminarFilme() {
@@ -62,14 +58,13 @@ function Sala({ sala, luzAcesa, onPrepararSala }) {
         <section className={styles.salaCinema}>
             <div className={styles.informacoes}>
                 <h2>SALA {sala.numero}</h2>
-                {statusSala === "semProgramacao" && (
+                {sala.filmes.length === 0 ? (
                     <div className={styles.infoFilme}>
                         <h3>Sala sem programação</h3>
                         <p>Nenhuma sessão cadastrada.</p>
-                        <p>Acesse a Administração paraprogramar esta sala.</p>
+                        <p>Acesse a Administração para programar esta sala.</p>
                     </div>
-                )}
-                {statusSala !== "semProgramacao" && (
+                ) : (
                     <>
                         <div className={styles.horario}>
                             <span>{filmeAtual.horario}</span>
@@ -94,14 +89,16 @@ function Sala({ sala, luzAcesa, onPrepararSala }) {
                             <div className={styles.acaoSessao}>
                                 <Botao
                                     texto="Iniciar sessão"
-                                    onClick={iniciarSessao}
+                                    onClick={iniciarSessaoSala}
                                 />
                                 <p>Sessão aguardando início</p>
                             </div>
-                        )} {statusSala === "exibindo" && (
+                        )}
+                        {statusSala === "exibindo" && (
                             <>
                                 <div className={styles.progresso}>
-                                    <div className={styles.progressoAtual}
+                                    <div
+                                        className={styles.progressoAtual}
                                         style={{
                                             animationDuration:
                                                 `${calcularTempoFilme(
@@ -113,17 +110,20 @@ function Sala({ sala, luzAcesa, onPrepararSala }) {
                                 </div>
                                 <p>Sessão em andamento</p>
                             </>
-                        )} {statusSala === "encerrado" && (
+                        )}
+                        {statusSala === "encerrado" && (
                             <div className={styles.acaoSessao}>
                                 <Botao
                                     texto="Preparar sala"
                                     onClick={prepararSala}
                                 />
                             </div>
-                        )} {statusSala === "preparando" && (
+                        )}
+                        {statusSala === "preparando" && (
                             <>
                                 <div className={styles.progresso}>
-                                    <div className={styles.progressoAtual}
+                                    <div
+                                        className={styles.progressoAtual}
                                         style={{
                                             animationDuration: "3s"
                                         }}
@@ -132,18 +132,20 @@ function Sala({ sala, luzAcesa, onPrepararSala }) {
                                 </div>
                                 <p>Sala em preparação</p>
                             </>
-                        )} {statusSala === "semSessoes" && (
+                        )}
+                        {statusSala === "semSessoes" && (
                             <div className={styles.infoFilme}>
                                 <p>Não há mais sessões para exibir.</p>
                             </div>
-                        )}{(statusSala === "aguardando" ||
+                        )}
+                        {(statusSala === "aguardando" ||
                             statusSala === "exibindo") && (
                                 <div className={styles.ocupacao}>
                                     <strong>Ocupação da sala</strong>
-                                    <span>{statusSala === "aguardando"
-                                        ? "-- / 40"
-                                        : `${ocupacaoAtual} / 40`
-                                    }
+                                    <span>
+                                        {statusSala === "aguardando"
+                                            ? "-- / 40"
+                                            : `${ocupacaoAtual} / 40`}
                                     </span>
                                 </div>
                             )}
@@ -152,7 +154,11 @@ function Sala({ sala, luzAcesa, onPrepararSala }) {
             </div>
             <div className={`${styles.acesso} ${styles[sala.porta]}`}>
                 <img src={imagemLuz} className={styles.luz} />
-                <img src={porta} alt={`Porta da Sala ${sala.numero}`} className={styles.porta} />
+                <img
+                    src={porta}
+                    alt={`Porta da Sala ${sala.numero}`}
+                    className={styles.porta}
+                />
                 <img src={imagemLuz} alt="" className={styles.luz} />
             </div>
         </section>
