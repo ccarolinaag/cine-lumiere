@@ -1,0 +1,27 @@
+.sucesso,
+.erro {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 12px 16px;
+
+    border: 2px solid;
+    border-radius: 4px;
+
+    font-family: inherit;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.sucesso {
+    color: #4f3d19;
+    background-color: #e8d9a8;
+    border-color: #b79a52;
+}
+
+.erro {
+    color: #5a2424;
+    background-color: #e6b7a9;
+    border-color: #9b4d43;
+}

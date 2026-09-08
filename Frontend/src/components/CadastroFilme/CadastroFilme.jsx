@@ -4,8 +4,12 @@ import { cadastrarSessao } from "../../services/api";
 import styles from "./CadastroFilme.module.css";
 
 import Botao from "../Botão/Botao";
+import Mensagem from "../Mensagem/Mensagem";
 
 function CadastroFilme({ salas, setSalas }) {
+    const [mensagem, setMensagem] = useState("");
+    const [tipoMensagem, setTipoMensagem] = useState("");
+
     const [dadosFilme, setDadosFilme] = useState({
         numero: "",
         horario: "",
@@ -50,9 +54,25 @@ function CadastroFilme({ salas, setSalas }) {
                     return sala;
                 });
                 setSalas(novasSalas);
+                setMensagem("Filme cadastrado com sucesso!");
+                setTipoMensagem("sucesso");
             })
             .catch((erro) => {
                 console.log("Erro na requisição:", erro);
+                if (erro.response?.status === 400) {
+                    setMensagem(
+                        "Não foi possível cadastrar. Verifique se todos os dados foram preenchidos corretamente."
+                    );
+                } else if (erro.response?.status === 409) {
+                    setMensagem(
+                        "Não foi possível cadastrar. Já existe uma sessão nesse horário ou há conflito com outra sessão."
+                    );
+                } else {
+                    setMensagem(
+                        "Não foi possível cadastrar o filme. Tente novamente."
+                    );
+                }
+                setTipoMensagem("erro");
             });
     }
 
@@ -70,7 +90,11 @@ function CadastroFilme({ salas, setSalas }) {
                     <div className={styles.coluna}>
                         <div className={styles.campo}>
                             <label>Sala</label>
-                            <select name="numero" value={dadosFilme.numero} onChange={alterarCampo}>
+                            <select
+                                name="numero"
+                                value={dadosFilme.numero}
+                                onChange={alterarCampo}
+                            >
                                 <option value="">Selecione a sala</option>
                                 <option value="1">Sala 1</option>
                                 <option value="2">Sala 2</option>
@@ -152,6 +176,12 @@ function CadastroFilme({ salas, setSalas }) {
                         onClick={cadastrarFilme}
                     />
                 </div>
+                {mensagem && (
+                    <Mensagem
+                        texto={mensagem}
+                        tipo={tipoMensagem}
+                    />
+                )}
             </form>
         </div>
     );
