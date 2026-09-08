@@ -8,10 +8,12 @@ A aplicação permite acompanhar a programação das salas, cadastrar filmes e s
 O projeto foi desenvolvido como uma aplicação integrada entre **Front-end e Back-end**, com comunicação por meio de uma **API REST** e persistência dos dados em banco de dados relacional.
 
 
+
 ## 🎯 Objetivo
 O objetivo do projeto é desenvolver uma aplicação Web funcional na qual o cliente desenvolvido em React consuma uma API REST desenvolvida em Java e Spring Boot.
 O Back-end é responsável por receber as requisições, validar os dados, aplicar as regras de negócio e realizar a persistência das informações.
 O Front-end é responsável pela interface, interação com o jogador e comunicação com a API.
+
 
 
 ## 🍿 Funcionalidades
@@ -27,6 +29,7 @@ Durante uma partida, o jogador pode:
   - Finalizar o dia de funcionamento;
   - Consultar o resumo das métricas do dia;
   - Começar uma nova partida.
+
 
 
 ## 📜 Regras de negócio
@@ -60,6 +63,7 @@ O cliente solicita os dados à API e apresenta as informações retornadas.
 O tempo utilizado na preparação das salas é considerado no cálculo das métricas do dia.
 
 
+
 ## 🏛️ Arquitetura
 ```text
                                       ┌────────────────────┐
@@ -84,6 +88,7 @@ O tempo utilizado na preparação das salas é considerado no cálculo das métr
 ````
 
 
+
 ## 🖥️ Cliente
 O cliente é responsável pela interface e pela interação do jogador com o sistema.
 Entre suas responsabilidades estão:
@@ -95,6 +100,7 @@ Entre suas responsabilidades estão:
   - Atualizar a interface de acordo com os dados recebidos.
 A documentação específica do Front-end está disponível em:
 [README do Cliente](./cliente/README.md)
+
 
 
 ## ⚙️ API
@@ -112,6 +118,7 @@ Entre suas responsabilidades estão:
   - Disponibilizar os recursos por meio de uma API REST.
 A documentação específica do Back-end e dos endpoints está disponível em:
 [README da API](./api/README.md)
+
 
 
 ## 🔄 Comunicação entre Cliente e API
@@ -149,6 +156,7 @@ A API processa a solicitação, valida os dados, aplica as regras de negócio e,
 Após o processamento, a API retorna uma resposta HTTP para o cliente, que utiliza os dados recebidos para atualizar a interface.
 
 
+
 ## 🔌 Principais recursos da API
 A API disponibiliza recursos relacionados a:
 | Recurso | Finalidade |
@@ -158,6 +166,7 @@ A API disponibiliza recursos relacionados a:
 | Resumo do dia | Consulta das métricas do funcionamento do cinema |
 
 A documentação completa dos endpoints, incluindo métodos HTTP, parâmetros, requisições, respostas e códigos de status, está disponível no [README da API](./api/README.md).
+
 
 
 ## 📡 Status HTTP utilizados
@@ -170,6 +179,7 @@ A API utiliza códigos HTTP para indicar o resultado das operações.
 | `400 Bad Request` | Dados enviados são inválidos |
 | `404 Not Found` | Recurso solicitado não existe |
 | `409 Conflict` | Operação não pode ser realizada devido a um conflito |
+
 
 
 ## 🛠️ Tecnologias utilizadas
@@ -198,6 +208,7 @@ A API utiliza códigos HTTP para indicar o resultado das operações.
   - IntelliJ IDEA
 
 
+
 ## 📁 Estrutura do projeto
 ``text 
                                           cine-lumiere/
@@ -219,6 +230,7 @@ A API utiliza códigos HTTP para indicar o resultado das operações.
 
 **Cliente:** O diretório cliente/ contém a aplicação Front-end desenvolvida em React.
 **API:**O diretório api/ contém a aplicação Back-end desenvolvida em Java e Spring Boot.
+
 
 
 ## ▶️ Como executar o projeto
@@ -267,6 +279,7 @@ npm run dev
 O Vite disponibilizará o endereço local da aplicação no terminal.
 Acesse o endereço informado pelo Vite no navegador.
 
+
 ## 🔗 Integração
 Para utilizar a aplicação completa, a API deve estar em execução antes de utilizar as funcionalidades do cliente que dependem das requisições ao Back-end.
 O cliente utiliza a API REST para:
@@ -275,6 +288,7 @@ O cliente utiliza a API REST para:
   - Iniciar sessões;
   - Consultar o resumo do dia.
 A URL utilizada pelo cliente para comunicação com a API é configurada no serviço de comunicação do Front-end.
+
 
 
 ## 🎓 Desenvolvimento acadêmico
