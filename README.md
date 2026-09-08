@@ -3,7 +3,6 @@
 </p>
 
 <h1 align="center">Cine Lumière</h1>
-# Cine Lumière
 
 ## 🎬 Sobre o projeto
 O **Cine Lumière** é um jogo de gerenciamento de cinema no qual o jogador administra as salas e sessões de um cinema durante um dia de funcionamento.
