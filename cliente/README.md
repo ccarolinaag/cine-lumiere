@@ -21,7 +21,7 @@ O cliente também realiza as requisições necessárias para comunicação com a
 
 ## 📁 Estrutura do cliente
 
-                                              ```text
+                                              ```
                                               cliente/
                                               ├── src/
                                               │   ├── assets/
@@ -71,7 +71,7 @@ O projeto utiliza **React Router DOM** para controlar a navegação entre as pá
 | `/` | `Inicio` | Tela inicial |
 | `/cinema` | `Cinema` | Tela principal do jogo |
 
----
+
 
 ## 🔄 Comunicação com a API
 As requisições realizadas pelo cliente são centralizadas no arquivo:
