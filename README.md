@@ -2,8 +2,6 @@
   <img src="./cliente/src/assets/logo.png" alt="Cine Lumière" width="350">
 </p>
 
-<h1 align="center">Cine Lumière</h1>
-
 ## 🎬 Sobre o projeto
 O **Cine Lumière** é um jogo de gerenciamento de cinema no qual o jogador administra as salas e sessões de um cinema durante um dia de funcionamento.
 A aplicação permite acompanhar a programação das salas, cadastrar filmes e sessões, preparar e iniciar sessões, acompanhar a ocupação das salas e, ao final do dia, consultar um resumo com as principais métricas da operação.
