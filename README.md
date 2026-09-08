@@ -103,6 +103,7 @@ Entre suas responsabilidades estão:
   - Enviar requisições para a API;
   - Receber respostas da API;
   - Atualizar a interface de acordo com os dados recebidos.
+
 A documentação específica do Front-end está disponível em:
 [README do Cliente](./cliente/README.md)
 
@@ -122,6 +123,7 @@ Entre suas responsabilidades estão:
   - Registrar sessões iniciadas;
   - Calcular as métricas do dia;
   - Disponibilizar os recursos por meio de uma API REST.
+
 A documentação específica do Back-end e dos endpoints está disponível em:
 [README da API](./api/README.md) <br>
 
